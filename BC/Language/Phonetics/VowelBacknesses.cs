@@ -1,4 +1,4 @@
-namespace BC.Language
+namespace BC.Language.Phonetics
 {
     public enum VowelBacknesses
     {

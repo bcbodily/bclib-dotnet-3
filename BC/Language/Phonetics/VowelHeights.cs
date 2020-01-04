@@ -1,4 +1,4 @@
-namespace BC.Language
+namespace BC.Language.Phonetics
 {
     /// <summary>
     /// Description of the height of the tongue in the first formant
