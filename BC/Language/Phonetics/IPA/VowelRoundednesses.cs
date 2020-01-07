@@ -1,4 +1,4 @@
-namespace BC.Language.Phonetics
+namespace BC.Language.Phonetics.IPA
 {
     public enum VowelRoundednesses
     {

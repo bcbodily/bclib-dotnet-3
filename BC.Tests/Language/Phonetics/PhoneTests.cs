@@ -2,6 +2,9 @@ using Xunit;
 
 namespace BC.Language.Phonetics
 {
+    /// <summary>
+    /// Units tests for Phone
+    /// </summary>
     public class PhoneTests
     {
         /// <summary>

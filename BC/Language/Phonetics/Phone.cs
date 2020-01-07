@@ -61,7 +61,7 @@ namespace BC.Language.Phonetics
             Symbol.CompareTo(other.Symbol);
 
         /// <summary>
-        /// Returns whether two phone are equal
+        /// Returns whether two phones are equal
         /// </summary>
         /// <param name="lhs">the first Phone</param>
         /// <param name="rhs">the second Phone</param>
@@ -70,7 +70,7 @@ namespace BC.Language.Phonetics
             lhs.Symbol == rhs.Symbol;
 
         /// <summary>
-        /// Returns whether two phone are not equal
+        /// Returns whether two phones are not equal
         /// </summary>
         /// <param name="lhs">the first Phone</param>
         /// <param name="rhs">the second Phone</param>

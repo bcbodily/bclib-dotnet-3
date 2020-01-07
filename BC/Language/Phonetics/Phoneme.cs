@@ -19,16 +19,17 @@ namespace BC.Language.Phonetics
         /// The phones that make up this phoneme
         /// </summary>
         /// <value></value>
-        public IList<Phone> Phones { get; }
+        public ISet<Phone> Allophones { get; }
 
         /// <summary>
         /// Creates a new Phoneme
         /// </summary>
         /// <param name="symbol">a symbol that represents this Phoneme</param>
-        public Phoneme(string symbol, params Phone[] phones)
+        /// <param name="allophones">zero or more phones that serve as allophones for this phenome</param>
+        public Phoneme(string symbol, params Phone[] allophones)
         {
             Symbol = symbol;
-            Phones = ImmutableList.Create(phones);
+            Allophones = ImmutableSortedSet.Create(allophones);
         }
 
         /// <summary>
@@ -39,7 +40,7 @@ namespace BC.Language.Phonetics
         /// <returns>true if the two Phonemes are equal; otherwise, false</returns>
         public static bool operator ==(Phoneme lhs, Phoneme rhs) =>
             lhs.Symbol == rhs.Symbol &&
-            lhs.Phones == rhs.Phones;
+            lhs.Allophones == rhs.Allophones;
 
         /// <summary>
         /// Returns whether one Phoneme is not equal to another
@@ -49,7 +50,7 @@ namespace BC.Language.Phonetics
         /// <returns>true if the two Phonemes are not equal; otherwise, false</returns>
         public static bool operator !=(Phoneme lhs, Phoneme rhs) =>
             lhs.Symbol != rhs.Symbol ||
-            lhs.Phones != rhs.Phones;
+            lhs.Allophones != rhs.Allophones;
 
         /// <summary>
         /// Returns whether a Phoneme is equal to this Phoneme
@@ -73,7 +74,7 @@ namespace BC.Language.Phonetics
         /// </summary>
         /// <returns>a hashcode that is consistent for this Phoneme</returns>
         public override int GetHashCode() =>
-            (Symbol, Phones).GetHashCode();
+            (Symbol, Allophones).GetHashCode();
 
         /// <summary>
         /// Gets a string representation of this Phoneme

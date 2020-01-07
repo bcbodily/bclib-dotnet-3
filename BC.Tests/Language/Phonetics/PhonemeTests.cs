@@ -6,7 +6,7 @@ namespace BC.Language.Phonetics
     public class PhonemeTests
     {
         /// <summary>
-        /// Verifies Phoneme.Phones properly returns a list of Phones that is equal to the Phones specified in the constructor
+        /// Verifies Phoneme.Allophones properly returns a list of Phones that is equal to the Phones specified in the constructor
         /// </summary>
         /// <param name="symbols">symbols to use to create Phones to specify in the constructor</param>
         [Theory]
@@ -16,21 +16,21 @@ namespace BC.Language.Phonetics
         public void Phones_is_equalTo_specified_phones(params string[] symbols)
         {
             string symbol = "Phoneme";
-            Phone[] phones = new Phone[symbols.Length];
+            Phone[] allophones = new Phone[symbols.Length];
             for (int i = 0; i < symbols.Length; i++)
             {
-                phones[i] = new Phone(symbols[i]);
+                allophones[i] = new Phone(symbols[i]);
             }
-            var phonesList = new List<Phone>();
-            foreach (Phone phone in phones)
+            var allophonesSet = new SortedSet<Phone>();
+            foreach (Phone phone in allophones)
             {
-                phonesList.Add(phone);
+                allophonesSet.Add(phone);
             }
 
-            var instance = new Phoneme(symbol: symbol, phones: phones);
+            var instance = new Phoneme(symbol: symbol, allophones: allophones);
 
-            var expected = phonesList;
-            var actual = instance.Phones;
+            var expected = allophonesSet;
+            var actual = instance.Allophones;
 
             Assert.Equal(expected, actual);
         }

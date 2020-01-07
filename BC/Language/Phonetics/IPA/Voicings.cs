@@ -1,4 +1,4 @@
-namespace BC.Language.Phonetics
+namespace BC.Language.Phonetics.IPA
 {
     /// <summary>
     /// Characterizations of sounds related to how the sound is vocally produced 
