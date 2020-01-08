@@ -31,6 +31,12 @@ namespace BC.Language.Phonetics.InternationalPhoneticAlphabet
         public static Phone IPA_000_VoicedAlveolarRetractedSibilant_Consonant { get; } = new Phone("z̠");
 
         /// <summary>
+        /// Voiced bilabial approximant
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_000_VoicedBilabialApproximant_Consonant { get; } = new Phone("β̞");
+
+        /// <summary>
         /// Voiced dental stop
         /// </summary>
         /// <returns></returns>
@@ -41,6 +47,12 @@ namespace BC.Language.Phonetics.InternationalPhoneticAlphabet
         /// </summary>
         /// <returns></returns>
         public static Phone IPA_000_VoicedLaminalDentalizedAlveolarSibilant_Consonant { get; } = new Phone("z̪");
+
+        /// <summary>
+        /// Voiced linguolabial fricative
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_000_VoicedLinguolabialFricative_Consonant { get; } = new Phone("ð̼");
 
         /// <summary>
         /// Voiced linguolabial stop
@@ -65,6 +77,12 @@ namespace BC.Language.Phonetics.InternationalPhoneticAlphabet
         /// </summary>
         /// <returns></returns>
         public static Phone IPA_000_VoicelessLaminalDentalizedAlveolarSibilant_Consonant { get; } = new Phone("s̪");
+
+        /// <summary>
+        /// Voiceless linguolabial fricative
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_000_VoicelessLinguolabialFricative_Consonant { get; } = new Phone("θ̼");
 
         /// <summary>
         /// Voiceless linguolabial stop
@@ -233,6 +251,42 @@ namespace BC.Language.Phonetics.InternationalPhoneticAlphabet
         /// </summary>
         /// <returns></returns>
         public static Phone IPA_120_UvularNasal_Consonant { get; } = new Phone("ɴ");
+
+        /// <summary>
+        /// Voiceless bilabial fricative
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_126_VoicelessBilabialFricative_Consonant { get; } = new Phone("ɸ");
+
+        /// <summary>
+        /// Voiced bilabial fricative
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_127_VoicedBilabialFricative_Consonant { get; } = new Phone("β");
+
+        /// <summary>
+        /// Voiceless labiodental fricative
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_128_VoicelessLabiodentalFricative_Consonant { get; } = new Phone("f");
+
+        /// <summary>
+        /// Voiced labiodental fricative
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_129_VoicedLabiodentalFricative_Consonant { get; } = new Phone("v");
+
+        /// <summary>
+        /// Voiceless dental fricative
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_130_VoicelessDentalFricative_Consonant { get; } = new Phone("θ");
+
+        /// <summary>
+        /// Voiced dental fricative
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_131_VoicedDentalFricative_Consonant { get; } = new Phone("ð");
 
         /// <summary>
         /// Voiceless alveolar sibilant
