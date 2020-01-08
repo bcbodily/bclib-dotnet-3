@@ -1,4 +1,4 @@
-namespace BC.System
+namespace BC.Framework
 {
     public interface IBuilder<T>
     {

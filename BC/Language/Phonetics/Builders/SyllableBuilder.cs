@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Collections.Immutable;
-using BC.System;
+using BC.Framework;
 
 namespace BC.Language.Phonetics.Builders
 {

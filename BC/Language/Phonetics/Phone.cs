@@ -18,6 +18,7 @@ namespace BC.Language.Phonetics
         /// <param name="symbol">the symbol that specifies this phone</param>
         public Phone(string symbol)
         {
+            Console.WriteLine($"making a new phone {symbol}");
             Symbol = symbol;
         }
 
