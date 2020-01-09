@@ -13,6 +13,12 @@ namespace BC.Language.Phonetics.InternationalPhoneticAlphabet
         #region Consonants
 
         /// <summary>
+        /// Alveolo-palatal lateral approximant
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_000_AlveoloPalatalLateralApproximant_Consonant { get; } = new Phone("ʎ̟");
+
+        /// <summary>
         /// Alveolo-palatal nasal
         /// </summary>
         /// <returns></returns>
@@ -23,6 +29,12 @@ namespace BC.Language.Phonetics.InternationalPhoneticAlphabet
         /// </summary>
         /// <returns></returns>
         public static Phone IPA_000_CreakyVoicedGlottalApproximant_Consonant { get; } = new Phone("ʔ̞");
+
+        /// <summary>
+        /// Dental lateral approximant
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_000_DentalLateralApproximant_Consonant { get; } = new Phone("l̪");
 
         /// <summary>
         /// Epiglottal tap
@@ -37,10 +49,34 @@ namespace BC.Language.Phonetics.InternationalPhoneticAlphabet
         public static Phone IPA_000_LinguolabialTap_Consonant { get; } = new Phone("ɾ̼");
 
         /// <summary>
+        /// Palatal lateral flap
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_000_PalatalLateralFlap_Consonant { get; } = new Phone("ʎ̆");
+
+        /// <summary>
         /// Postalveolar approximant
         /// </summary>
         /// <returns></returns>
         public static Phone IPA_000_PostalveolarApproximant_Consonant { get; } = new Phone("ɹ̠");
+
+        /// <summary>
+        /// Postalveolar lateral approximant
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_000_PostalveolarLateralApproximant_Consonant { get; } = new Phone("l̠");
+
+        /// <summary>
+        /// Retroflex lateral flap
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_000_RetroflexLateralFlap_Consonant { get; } = new Phone("ɭ̆");
+
+        /// <summary>
+        /// Velar lateral tap
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_000_VelarLateralTap_Consonant { get; } = new Phone("ʟ̆");
 
         /// <summary>
         /// Voiced alveolar non-sibilant fricative
@@ -53,6 +89,12 @@ namespace BC.Language.Phonetics.InternationalPhoneticAlphabet
         /// </summary>
         /// <returns></returns>
         public static Phone IPA_000_VoicedAlveolarRetractedSibilant_Consonant { get; } = new Phone("z̠");
+
+        /// <summary>
+        /// Voiced alveolar stop
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_104_VoicedAlveolarStop_Consonant { get; } = new Phone("d");
 
         /// <summary>
         /// Voiced bilabial approximant
@@ -97,6 +139,12 @@ namespace BC.Language.Phonetics.InternationalPhoneticAlphabet
         public static Phone IPA_000_VoicedRetroflexLateralFricative_Consonant { get; } = new Phone("ɭ˔");
 
         /// <summary>
+        /// Voiced velar lateral fricative
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_000_VoicedVelarLateralFricative_Consonant { get; } = new Phone("ʟ̝");
+
+        /// <summary>
         /// Voiceless alveolar retracted sibilant
         /// </summary>
         /// <returns></returns>
@@ -113,6 +161,12 @@ namespace BC.Language.Phonetics.InternationalPhoneticAlphabet
         /// </summary>
         /// <returns></returns>
         public static Phone IPA_000_VoicelessBilabialTrill_Consonant { get; } = new Phone("ʙ̥");
+
+        /// <summary>
+        /// Voiceless dental lateral approximant
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_000_VoicelessDentalLateralApproximant_Consonant { get; } = new Phone("l̪̊");
 
         /// <summary>
         /// Voiceless laminal dentalized alveolar sibilant
@@ -133,6 +187,12 @@ namespace BC.Language.Phonetics.InternationalPhoneticAlphabet
         public static Phone IPA_000_VoicelessLinguolabialStop_Consonant { get; } = new Phone("t̼");
 
         /// <summary>
+        /// Voiceless palatal lateral fricative
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_000_VoicelessPalatalLateralFricative_Consonant { get; } = new Phone("ʎ̝̊");
+
+        /// <summary>
         /// Voiceless palatal nasal
         /// </summary>
         /// <returns></returns>
@@ -145,10 +205,22 @@ namespace BC.Language.Phonetics.InternationalPhoneticAlphabet
         public static Phone IPA_000_VoicelessRetroflexLateralFricative_Consonant { get; } = new Phone("ꞎ");
 
         /// <summary>
+        /// Voiceless postalveolar lateral approximant
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_000_VoicelessPostalveolarLateralApproximant_Consonant { get; } = new Phone("l̠̊");
+
+        /// <summary>
         /// Voiceless retroflex nasal
         /// </summary>
         /// <returns></returns>
         public static Phone IPA_000_VoicelessRetroflexNasal_Consonant { get; } = new Phone("ɳ̊");
+
+        /// <summary>
+        /// Voiceless velar lateral fricative
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_000_VoicelessVelarLateralFricative_Consonant { get; } = new Phone("ʟ̝̊");
 
         /// <summary>
         /// Voiceless velar nasal
@@ -185,12 +257,6 @@ namespace BC.Language.Phonetics.InternationalPhoneticAlphabet
         /// </summary>
         /// <returns></returns>
         public static Phone IPA_103_VoicelessAlveolarStop_Consonant { get; } = new Phone("t");
-
-        /// <summary>
-        /// Voiced alveolar stop
-        /// </summary>
-        /// <returns></returns>
-        public static Phone IPA_104_VoicedAlveolarStop_Consonant { get; } = new Phone("d");
 
         /// <summary>
         /// Voiceless retroflex stop
@@ -601,6 +667,66 @@ namespace BC.Language.Phonetics.InternationalPhoneticAlphabet
         public static Phone IPA_154_402A_VoicelessVelarApproximant_Consonant { get; } = new Phone("ɰ̊");
 
         /// <summary>
+        /// Voiceless alveolar lateral approximant
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_154_402A_VoicelessAlveolarLateralApproximant_Consonant { get; } = new Phone("l̥");
+
+        /// <summary>
+        /// Alveolar lateral approximant
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_155_AlveolarLateralApproximant_Consonant { get; } = new Phone("l");
+
+        /// <summary>
+        /// Retroflex lateral approximant
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_156_RetroflexLateralApproximant_Consonant { get; } = new Phone("ɭ");
+
+        /// <summary>
+        /// Voiceless retroflex lateral approximant
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_156_402A_VoicelessRetroflexLateralApproximant_Consonant { get; } = new Phone("ɭ̊");
+
+        /// <summary>
+        /// Palatal lateral approximant
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_157_PalatalLateralApproximant_Consonant { get; } = new Phone("ʎ");
+
+        /// <summary>
+        /// Voiceless palatal lateral approximant
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_157_402A_VoicelessPalatalLateralApproximant_Consonant { get; } = new Phone("ʎ̥");
+
+        /// <summary>
+        /// Voiced palatal lateral fricative
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_157_429_VoicedPalatalLateralFricative_Consonant { get; } = new Phone("ʎ̝");
+
+        /// <summary>
+        /// Velar lateral approximant
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_158_VelarLateralApproximant_Consonant { get; } = new Phone("ʟ");
+
+        /// <summary>
+        /// Voiceless velar lateral approximant
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_158_402A_VoicelessVelarLateralApproximant_Consonant { get; } = new Phone("ʟ̥");
+
+        /// <summary>
+        /// Uvular lateral approximant
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_158_414_UvularLateralApproximant_Consonant { get; } = new Phone("ʟ̠");
+
+        /// <summary>
         /// Voiceless pharyngeal trill
         /// </summary>
         /// <returns></returns>
@@ -617,6 +743,12 @@ namespace BC.Language.Phonetics.InternationalPhoneticAlphabet
         /// </summary>
         /// <returns></returns>
         public static Phone IPA_174_VoicedPharyngealTrill_Consonant { get; } = new Phone("ʢ");
+
+        /// <summary>
+        /// Alveolar lateral flap 
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_181_AlveolarLateralFlap_Consonant { get; } = new Phone("ɺ");
 
         /// <summary>
         /// Voiceless alveolo-palatal fricative
@@ -841,6 +973,9 @@ namespace BC.Language.Phonetics.InternationalPhoneticAlphabet
 
         #endregion
 
+        private static ICollection<Phone> BuildConsonantMap() {
+            return ImmutableSortedSet.Create<Phone>();
+        }
         private static ICollection<Phone> BuildVowelMap()
         {
             IDictionary<(VowelHeights, VowelBacknesses, VowelRoundednesses), Phone> vmap = new Dictionary<(VowelHeights, VowelBacknesses, VowelRoundednesses), Phone>();
