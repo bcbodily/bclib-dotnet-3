@@ -25,6 +25,12 @@ namespace BC.Language.Phonetics.InternationalPhoneticAlphabet
         public static Phone IPA_000_CreakyVoicedGlottalApproximant_Consonant { get; } = new Phone("ʔ̞");
 
         /// <summary>
+        /// Epiglottal tap
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_000_EpiglottalTap_Consonant { get; } = new Phone("ʡ̆");
+
+        /// <summary>
         /// Linguolabial tap
         /// </summary>
         /// <returns></returns>
@@ -85,6 +91,12 @@ namespace BC.Language.Phonetics.InternationalPhoneticAlphabet
         public static Phone IPA_000_VoicedPharyngealApproximant_Consonant { get; } = new Phone("ʕ̞");
 
         /// <summary>
+        /// Voiced  retroflex lateral fricative
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_000_VoicedRetroflexLateralFricative_Consonant { get; } = new Phone("ɭ˔");
+
+        /// <summary>
         /// Voiceless alveolar retracted sibilant
         /// </summary>
         /// <returns></returns>
@@ -95,6 +107,12 @@ namespace BC.Language.Phonetics.InternationalPhoneticAlphabet
         /// </summary>
         /// <returns></returns>
         public static Phone IPA_000_VoicelessBilabialNasal_Consonant { get; } = new Phone("m̥");
+
+        /// <summary>
+        /// Voiceless bilabial trill
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_000_VoicelessBilabialTrill_Consonant { get; } = new Phone("ʙ̥");
 
         /// <summary>
         /// Voiceless laminal dentalized alveolar sibilant
@@ -119,6 +137,12 @@ namespace BC.Language.Phonetics.InternationalPhoneticAlphabet
         /// </summary>
         /// <returns></returns>
         public static Phone IPA_000_VoicelessPalatalNasal_Consonant { get; } = new Phone("ɲ̊");
+
+        /// <summary>
+        /// Voiceless retroflex lateral fricative
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_000_VoicelessRetroflexLateralFricative_Consonant { get; } = new Phone("ꞎ");
 
         /// <summary>
         /// Voiceless retroflex nasal
@@ -175,6 +199,12 @@ namespace BC.Language.Phonetics.InternationalPhoneticAlphabet
         public static Phone IPA_105_VoicelessRetroflexStop_Consonant { get; } = new Phone("ʈ");
 
         /// <summary>
+        /// Voiceless retroflex flap
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_105_402B_VoicelessRetroflexFlap_Consonant { get; } = new Phone("ɽ̊");
+
+        /// <summary>
         /// Voiced retroflex stop
         /// </summary>
         /// <returns></returns>
@@ -215,6 +245,12 @@ namespace BC.Language.Phonetics.InternationalPhoneticAlphabet
         /// </summary>
         /// <returns></returns>
         public static Phone IPA_112_VoicedUvularStop_Consonant { get; } = new Phone("ɢ");
+
+        /// <summary>
+        /// Uvular tap
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_112_505_UvularTap_Consonant { get; } = new Phone("ɢ̆");
 
         /// <summary>
         /// Glottal stop
@@ -275,6 +311,66 @@ namespace BC.Language.Phonetics.InternationalPhoneticAlphabet
         /// </summary>
         /// <returns></returns>
         public static Phone IPA_120_UvularNasal_Consonant { get; } = new Phone("ɴ");
+
+        /// <summary>
+        /// Bilabial trill
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_121_BilabialTrill_Consonant { get; } = new Phone("ʙ");
+
+        /// <summary>
+        /// Alveolar trill
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_122_AlveolarTrill_Consonant { get; } = new Phone("r");
+
+        /// <summary>
+        /// Voiceless alveolar trill
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_122_402A_VoicelessAlveolarTrill_Consonant { get; } = new Phone("r̥");
+
+        /// <summary>
+        /// Uvular trill
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_123_UvularTrill_Consonant { get; } = new Phone("ʀ");
+
+        /// <summary>
+        /// Voiceless uvular trill
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_123_402A_VoicelessUvularTrill_Consonant { get; } = new Phone("ʀ̥");
+
+        /// <summary>
+        /// Alveolar tap
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_124_AlveolarTap_Consonant { get; } = new Phone("ɾ");
+
+        /// <summary>
+        /// Voiceless alveolar tap
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_124_402A_VoicelessAlveolarTap_Consonant { get; } = new Phone("ɾ̥");
+
+        /// <summary>
+        /// Retroflex trill
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_125_433_122_RetroflexTrill_Consonant { get; } = new Phone("ɽr");
+
+        /// <summary>
+        /// Retroflex flap
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_125_RetroflexFlap_Consonant { get; } = new Phone("ɽ");
+
+        /// <summary>
+        /// Voiceless retroflex trill
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_125_433_122_402A_VoicelessRetroflexTrill_Consonant { get; } = new Phone("ɽ̊r̥");
 
         /// <summary>
         /// Voiceless bilabial fricative
@@ -415,6 +511,18 @@ namespace BC.Language.Phonetics.InternationalPhoneticAlphabet
         public static Phone IPA_147_VoicedGlottalFricative_Consonant { get; } = new Phone("ɦ");
 
         /// <summary>
+        /// Voiceless alveolar lateral fricative
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_148_VoicelessAlveolarLateralFricative_Consonant { get; } = new Phone("ɬ");
+
+        /// <summary>
+        /// Voiced alveolar lateral fricative
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_149_VoicedAlveolarLateralFricative_Consonant { get; } = new Phone("ɮ");
+
+        /// <summary>
         /// Labiodental approximant
         /// </summary>
         /// <returns></returns>
@@ -493,10 +601,22 @@ namespace BC.Language.Phonetics.InternationalPhoneticAlphabet
         public static Phone IPA_154_402A_VoicelessVelarApproximant_Consonant { get; } = new Phone("ɰ̊");
 
         /// <summary>
+        /// Voiceless pharyngeal trill
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_172_VoicelessPharyngealTrill_Consonant { get; } = new Phone("ʜ");
+
+        /// <summary>
         /// Epiglottal stop
         /// </summary>
         /// <returns></returns>
         public static Phone IPA_173_EpiglottalStop_Consonant { get; } = new Phone("ʡ");
+
+        /// <summary>
+        /// Voiced pharyngeal trill
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_174_VoicedPharyngealTrill_Consonant { get; } = new Phone("ʢ");
 
         /// <summary>
         /// Voiceless alveolo-palatal fricative
