@@ -19,10 +19,28 @@ namespace BC.Language.Phonetics.InternationalPhoneticAlphabet
         public static Phone IPA_000_AlveoloPalatalNasal_Consonant { get; } = new Phone("ɲ̟");
 
         /// <summary>
+        /// Creaky-voiced glottal approximant
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_000_CreakyVoicedGlottalApproximant_Consonant { get; } = new Phone("ʔ̞");
+
+        /// <summary>
         /// Linguolabial tap
         /// </summary>
         /// <returns></returns>
         public static Phone IPA_000_LinguolabialTap_Consonant { get; } = new Phone("ɾ̼");
+
+        /// <summary>
+        /// Postalveolar approximant
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_000_PostalveolarApproximant_Consonant { get; } = new Phone("ɹ̠");
+
+        /// <summary>
+        /// Voiced alveolar non-sibilant fricative
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_000_VoicedAlveolarNonSibilantFricative_Consonant { get; } = new Phone("ð̠");
 
         /// <summary>
         /// Voiced alveolar retracted sibilant
@@ -59,6 +77,12 @@ namespace BC.Language.Phonetics.InternationalPhoneticAlphabet
         /// </summary>
         /// <returns></returns>
         public static Phone IPA_000_VoicedLinguolabialStop_Consonant { get; } = new Phone("d̼");
+
+        /// <summary>
+        /// Voiced pharyngeal approximant
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_000_VoicedPharyngealApproximant_Consonant { get; } = new Phone("ʕ̞");
 
         /// <summary>
         /// Voiceless alveolar retracted sibilant
@@ -283,6 +307,12 @@ namespace BC.Language.Phonetics.InternationalPhoneticAlphabet
         public static Phone IPA_130_VoicelessDentalFricative_Consonant { get; } = new Phone("θ");
 
         /// <summary>
+        /// Voiceless alveolar non-sibilant fricative
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_130_414_VoicelessAlveolarNonSibilantFricative_Consonant { get; } = new Phone("θ̠");
+
+        /// <summary>
         /// Voiced dental fricative
         /// </summary>
         /// <returns></returns>
@@ -325,6 +355,144 @@ namespace BC.Language.Phonetics.InternationalPhoneticAlphabet
         public static Phone IPA_137_VoicedRetroflexFricative_Consonant { get; } = new Phone("ʐ");
 
         /// <summary>
+        /// Voiceless palatal fricative
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_138_VoicelessPalatalFricative_Consonant { get; } = new Phone("ç");
+
+        /// <summary>
+        /// Voiced palatal fricative
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_139_VoicedPalatalFricative_Consonant { get; } = new Phone("ʝ");
+
+        /// <summary>
+        /// Voiceless velar fricative
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_140_VoicelessVelarFricative_Consonant { get; } = new Phone("x");
+
+        /// <summary>
+        /// Voiced velar fricative
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_141_VoicedVelarFricative_Consonant { get; } = new Phone("ɣ");
+
+        /// <summary>
+        /// Voiceless uvular fricative
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_142_VoicelessUvularFricative_Consonant { get; } = new Phone("χ");
+
+        /// <summary>
+        /// Voiced uvular fricative
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_143_VoicedUvularFricative_Consonant { get; } = new Phone("ʁ");
+
+        /// <summary>
+        /// Voiceless pharyngeal fricative
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_144_VoicelessPharyngealFricative_Consonant { get; } = new Phone("ħ");
+
+        /// <summary>
+        /// Voiced pharyngeal fricative
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_145_VoicedPharyngealFricative_Consonant { get; } = new Phone("ʕ");
+
+        /// <summary>
+        /// Voiceless glottal fricative
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_146_VoicelessGlottalFricative_Consonant { get; } = new Phone("h");
+
+        /// <summary>
+        /// Voiced glottal fricative
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_147_VoicedGlottalFricative_Consonant { get; } = new Phone("ɦ");
+
+        /// <summary>
+        /// Labiodental approximant
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_150_LabiodentalApproximant_Consonant { get; } = new Phone("ʋ");
+
+        /// <summary>
+        /// Voiceless labiodental approximant
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_150_402A_VoicelessLabiodentalApproximant_Consonant { get; } = new Phone("ʋ̥");
+
+        /// <summary>
+        /// Alveolar approximant
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_151_AlveolarApproximant_Consonant { get; } = new Phone("ɹ");
+
+        /// <summary>
+        /// Voiceless alveolar approximant
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_151_402A_VoicelessAlveolarApproximant_Consonant { get; } = new Phone("ɹ̥");
+
+        /// <summary>
+        /// Voiceless postalveolar non-sibilant fricative
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_151_414_402A_429_VoicelessPostalveolarNonSibilantFricative_Consonant { get; } = new Phone("ɹ̠̊˔");
+
+        /// <summary>
+        /// Voiced postalveolar non-sibilant fricative
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_151_414_429_VoicedPostalveolarNonSibilantFricative_Consonant { get; } = new Phone("ɹ̠˔");
+
+        /// <summary>
+        /// Retroflex approximant
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_152_RetroflexApproximant_Consonant { get; } = new Phone("ɻ");
+
+        /// <summary>
+        /// Voiceless retroflex approximant
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_152_402A_VoicelessRetroflexApproximant_Consonant { get; } = new Phone("ɻ̊");
+
+        /// <summary>
+        /// Voiced retroflex non-sibilant fricative
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_152_429_VoicedRetroflexNonSibilantFricative_Consonant { get; } = new Phone("ɻ̝");
+
+        /// <summary>
+        /// Palatal approximant
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_153_PalatalApproximant_Consonant { get; } = new Phone("j");
+
+        /// <summary>
+        /// Voiceless palatal approximant
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_153_402A_VoicelessPalatalApproximant_Consonant { get; } = new Phone("j̊");
+
+        /// <summary>
+        /// Velar approximant
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_154_VelarApproximant_Consonant { get; } = new Phone("ɰ");
+
+        /// <summary>
+        /// Voiceless velar approximant
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_154_402A_VoicelessVelarApproximant_Consonant { get; } = new Phone("ɰ̊");
+
+        /// <summary>
         /// Epiglottal stop
         /// </summary>
         /// <returns></returns>
@@ -341,6 +509,18 @@ namespace BC.Language.Phonetics.InternationalPhoneticAlphabet
         /// </summary>
         /// <returns></returns>
         public static Phone IPA_183_VoicedAlveoloPalatalFricative_Consonant { get; } = new Phone("ʑ");
+
+        /// <summary>
+        /// Labiodental flap
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_184_LabiodentalFlap_Consonant { get; } = new Phone("ⱱ");
+
+        /// <summary>
+        /// Bilabial flap
+        /// </summary>
+        /// <returns></returns>
+        public static Phone IPA_184_413_BilabialFlap_Consonant { get; } = new Phone("ⱱ̟");
 
         #endregion
 
