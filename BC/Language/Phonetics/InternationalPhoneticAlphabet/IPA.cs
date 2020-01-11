@@ -6,7 +6,9 @@ namespace BC.Language.Phonetics.InternationalPhoneticAlphabet
 {
     public class IPA
     {
+        public ICollection<Phone> Consonants {get;} = BuildConsonantMap();
         public ICollection<Phone> Vowels { get; } = BuildVowelMap();
+
 
         #region Phones
 
@@ -974,7 +976,59 @@ namespace BC.Language.Phonetics.InternationalPhoneticAlphabet
         #endregion
 
         private static ICollection<Phone> BuildConsonantMap() {
-            return ImmutableSortedSet.Create<Phone>();
+            IDictionary<(PlaceOfArticulations, MannerOfArticulations, Voicings),Phone> cmap = new Dictionary<(PlaceOfArticulations, MannerOfArticulations, Voicings),Phone>();
+
+            // Alveolo-palatal lateral approximant
+            cmap.Add((PlaceOfArticulations.AlveoloPalatal,MannerOfArticulations.LateralApproximant, Voicings.Voiced),
+            IPA.IPA_000_AlveoloPalatalLateralApproximant_Consonant);
+
+            cmap.Add((PlaceOfArticulations.AlveoloPalatal,MannerOfArticulations.LateralApproximant, Voicings.Voiceless),
+            IPA.IPA_000_AlveoloPalatalLateralApproximant_Consonant);
+
+            // Alveolo-palatal nasal
+            cmap.Add((PlaceOfArticulations.AlveoloPalatal,MannerOfArticulations.Nasal, Voicings.Voiced),
+            IPA.IPA_000_AlveoloPalatalNasal_Consonant);
+
+            cmap.Add((PlaceOfArticulations.AlveoloPalatal,MannerOfArticulations.Nasal, Voicings.Voiceless),
+            IPA.IPA_000_AlveoloPalatalNasal_Consonant);
+
+            // Dental lateral approximant
+            cmap.Add((
+                PlaceOfArticulations.Dental, MannerOfArticulations.LateralApproximant, Voicings.Voiced), IPA.IPA_000_DentalLateralApproximant_Consonant);
+
+            cmap.Add((
+                PlaceOfArticulations.Dental, MannerOfArticulations.LateralApproximant, Voicings.Voiceless), IPA.IPA_000_DentalLateralApproximant_Consonant);
+
+            // Epiglottal tap
+            cmap.Add((
+                PlaceOfArticulations.Epiglottal, MannerOfArticulations.Tap,
+                Voicings.Voiced), IPA.IPA_000_EpiglottalTap_Consonant);
+
+            cmap.Add((
+                PlaceOfArticulations.Epiglottal, MannerOfArticulations.Tap,
+                Voicings.Voiceless), IPA.IPA_000_EpiglottalTap_Consonant);
+
+            // Linguolabial tap
+            cmap.Add((
+                PlaceOfArticulations.LinguoLabial, MannerOfArticulations.Tap,
+                Voicings.Voiced), IPA.IPA_000_LinguolabialTap_Consonant);
+
+            cmap.Add((
+                PlaceOfArticulations.LinguoLabial, MannerOfArticulations.Tap,
+                Voicings.Voiceless), IPA.IPA_000_LinguolabialTap_Consonant);
+
+            // Palatal lateral flap
+            cmap.Add((
+                PlaceOfArticulations.Palatal, MannerOfArticulations.LateralTap,
+                Voicings.Voiced), IPA.IPA_000_PalatalLateralFlap_Consonant);
+
+            cmap.Add((
+                PlaceOfArticulations.Palatal, MannerOfArticulations.LateralTap,
+                Voicings.Voiceless), IPA.IPA_000_PalatalLateralFlap_Consonant);
+
+
+
+            return ImmutableSortedSet.CreateRange(cmap.Values);
         }
         private static ICollection<Phone> BuildVowelMap()
         {
