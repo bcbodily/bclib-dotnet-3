@@ -1,6 +1,10 @@
 using System;
+using System.Collections.Generic;
+
 using Xunit;
 using BC.Language.Phonetics.InternationalPhoneticAlphabet;
+using BC.Language.Phonetics.Builders;
+using System.Text;
 
 namespace BC.Language.Phonetics
 {
@@ -9,19 +13,6 @@ namespace BC.Language.Phonetics
     /// </summary>
     public class PhoneTests
     {
-        [Fact]
-        public void testMakingStuff()
-        {
-            Console.OutputEncoding = System.Text.Encoding.UTF8;
-            Console.WriteLine("Show IPA vowels");
-            Console.WriteLine($"Count: {new IPA().Vowels.Count}");
-            foreach (Phone phone in new IPA().Vowels) {
-                Console.WriteLine(phone);
-            }
-
-
-        }
-
         /// <summary>
         /// Verifies Symbol returns the symbol specified in the constructor
         /// </summary>
