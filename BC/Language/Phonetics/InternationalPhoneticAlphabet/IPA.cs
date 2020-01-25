@@ -6,9 +6,29 @@ namespace BC.Language.Phonetics.InternationalPhoneticAlphabet
 {
     public class IPA
     {
-        public ICollection<Phone> Consonants {get;} = BuildConsonantMap();
+        /// <summary>
+        /// A dictionary of Phones by height, backness, and roundedness
+        /// </summary>
+        private static IDictionary<(VowelHeights, VowelBacknesses, VowelRoundednesses), Phone> vowelDict = new Dictionary<(VowelHeights, VowelBacknesses, VowelRoundednesses), Phone>();
+
+        private static IDictionary<(PlaceOfArticulations, MannerOfArticulations, Voicings), Phone> consonantDict = new Dictionary<(PlaceOfArticulations, MannerOfArticulations, Voicings), Phone>();
+
+        public ICollection<Phone> Consonants { get; } = BuildConsonantMap();
         public ICollection<Phone> Vowels { get; } = BuildVowelMap();
 
+        public static Phone GetConsonant((PlaceOfArticulations, MannerOfArticulations, Voicings) key)
+        {
+            if (consonantDict.ContainsKey(key))
+                return consonantDict[key];
+            return new Phone(null);
+        }
+        public static Phone GetVowel((VowelHeights, VowelBacknesses, VowelRoundednesses) key)
+        {
+            if (vowelDict.ContainsKey(key))
+                return vowelDict[key];
+
+            return new Phone(null);
+        }
 
         #region Phones
 
@@ -975,165 +995,165 @@ namespace BC.Language.Phonetics.InternationalPhoneticAlphabet
 
         #endregion
 
-        private static ICollection<Phone> BuildConsonantMap() {
-            IDictionary<(PlaceOfArticulations, MannerOfArticulations, Voicings),Phone> cmap = new Dictionary<(PlaceOfArticulations, MannerOfArticulations, Voicings),Phone>();
+        private static ICollection<Phone> BuildConsonantMap()
+        {
+
 
             // Alveolo-palatal lateral approximant
-            cmap.Add((PlaceOfArticulations.AlveoloPalatal,MannerOfArticulations.LateralApproximant, Voicings.Voiced),
+            consonantDict.Add((PlaceOfArticulations.AlveoloPalatal, MannerOfArticulations.LateralApproximant, Voicings.Voiced),
             IPA.IPA_000_AlveoloPalatalLateralApproximant_Consonant);
 
-            cmap.Add((PlaceOfArticulations.AlveoloPalatal,MannerOfArticulations.LateralApproximant, Voicings.Voiceless),
+            consonantDict.Add((PlaceOfArticulations.AlveoloPalatal, MannerOfArticulations.LateralApproximant, Voicings.Voiceless),
             IPA.IPA_000_AlveoloPalatalLateralApproximant_Consonant);
 
             // Alveolo-palatal nasal
-            cmap.Add((PlaceOfArticulations.AlveoloPalatal,MannerOfArticulations.Nasal, Voicings.Voiced),
+            consonantDict.Add((PlaceOfArticulations.AlveoloPalatal, MannerOfArticulations.Nasal, Voicings.Voiced),
             IPA.IPA_000_AlveoloPalatalNasal_Consonant);
 
-            cmap.Add((PlaceOfArticulations.AlveoloPalatal,MannerOfArticulations.Nasal, Voicings.Voiceless),
+            consonantDict.Add((PlaceOfArticulations.AlveoloPalatal, MannerOfArticulations.Nasal, Voicings.Voiceless),
             IPA.IPA_000_AlveoloPalatalNasal_Consonant);
 
             // Dental lateral approximant
-            cmap.Add((
+            consonantDict.Add((
                 PlaceOfArticulations.Dental, MannerOfArticulations.LateralApproximant, Voicings.Voiced), IPA.IPA_000_DentalLateralApproximant_Consonant);
 
-            cmap.Add((
+            consonantDict.Add((
                 PlaceOfArticulations.Dental, MannerOfArticulations.LateralApproximant, Voicings.Voiceless), IPA.IPA_000_DentalLateralApproximant_Consonant);
 
             // Epiglottal tap
-            cmap.Add((
+            consonantDict.Add((
                 PlaceOfArticulations.Epiglottal, MannerOfArticulations.Tap,
                 Voicings.Voiced), IPA.IPA_000_EpiglottalTap_Consonant);
 
-            cmap.Add((
+            consonantDict.Add((
                 PlaceOfArticulations.Epiglottal, MannerOfArticulations.Tap,
                 Voicings.Voiceless), IPA.IPA_000_EpiglottalTap_Consonant);
 
             // Linguolabial tap
-            cmap.Add((
+            consonantDict.Add((
                 PlaceOfArticulations.LinguoLabial, MannerOfArticulations.Tap,
                 Voicings.Voiced), IPA.IPA_000_LinguolabialTap_Consonant);
 
-            cmap.Add((
+            consonantDict.Add((
                 PlaceOfArticulations.LinguoLabial, MannerOfArticulations.Tap,
                 Voicings.Voiceless), IPA.IPA_000_LinguolabialTap_Consonant);
 
             // Palatal lateral flap
-            cmap.Add((
+            consonantDict.Add((
                 PlaceOfArticulations.Palatal, MannerOfArticulations.LateralTap,
                 Voicings.Voiced), IPA.IPA_000_PalatalLateralFlap_Consonant);
 
-            cmap.Add((
+            consonantDict.Add((
                 PlaceOfArticulations.Palatal, MannerOfArticulations.LateralTap,
                 Voicings.Voiceless), IPA.IPA_000_PalatalLateralFlap_Consonant);
 
 
 
-            return ImmutableSortedSet.CreateRange(cmap.Values);
+            return ImmutableSortedSet.CreateRange(consonantDict.Values);
         }
         private static ICollection<Phone> BuildVowelMap()
         {
-            IDictionary<(VowelHeights, VowelBacknesses, VowelRoundednesses), Phone> vmap = new Dictionary<(VowelHeights, VowelBacknesses, VowelRoundednesses), Phone>();
 
             // IPA 301
-            vmap.Add((VowelHeights.Close, VowelBacknesses.Front, VowelRoundednesses.Unrounded), IPA.IPA_301_CloseFrontUnroundedVowel);
+            vowelDict.Add((VowelHeights.Close, VowelBacknesses.Front, VowelRoundednesses.Unrounded), IPA.IPA_301_CloseFrontUnroundedVowel);
 
             // IPA 302
-            vmap.Add((VowelHeights.CloseMid, VowelBacknesses.Front, VowelRoundednesses.Unrounded), IPA.IPA_302_CloseMidFrontUnroundedVowel);
+            vowelDict.Add((VowelHeights.CloseMid, VowelBacknesses.Front, VowelRoundednesses.Unrounded), IPA.IPA_302_CloseMidFrontUnroundedVowel);
 
             // IPA 303
-            vmap.Add((VowelHeights.OpenMid, VowelBacknesses.Front, VowelRoundednesses.Unrounded), IPA.IPA_303_OpenMidFrontUnroundedVowel);
+            vowelDict.Add((VowelHeights.OpenMid, VowelBacknesses.Front, VowelRoundednesses.Unrounded), IPA.IPA_303_OpenMidFrontUnroundedVowel);
 
             // IPA 304
-            vmap.Add((VowelHeights.Open, VowelBacknesses.Front, VowelRoundednesses.Unrounded), IPA.IPA_304_OpenFrontUnroundedVowel);
+            vowelDict.Add((VowelHeights.Open, VowelBacknesses.Front, VowelRoundednesses.Unrounded), IPA.IPA_304_OpenFrontUnroundedVowel);
 
             // IPA 304-415
-            vmap.Add((VowelHeights.Open, VowelBacknesses.Central, VowelRoundednesses.Unrounded), IPA.IPA_304_415_OpenCentralUnroundedVowel);
+            vowelDict.Add((VowelHeights.Open, VowelBacknesses.Central, VowelRoundednesses.Unrounded), IPA.IPA_304_415_OpenCentralUnroundedVowel);
 
             // IPA 305
-            vmap.Add((VowelHeights.Open, VowelBacknesses.Back, VowelRoundednesses.Unrounded), IPA.IPA_305_OpenBackUnroundedVowel);
+            vowelDict.Add((VowelHeights.Open, VowelBacknesses.Back, VowelRoundednesses.Unrounded), IPA.IPA_305_OpenBackUnroundedVowel);
 
             // IPA 306
-            vmap.Add((VowelHeights.OpenMid, VowelBacknesses.Back, VowelRoundednesses.Rounded), IPA.IPA_306_OpenMidBackRoundedVowel);
+            vowelDict.Add((VowelHeights.OpenMid, VowelBacknesses.Back, VowelRoundednesses.Rounded), IPA.IPA_306_OpenMidBackRoundedVowel);
 
             // IPA 307
-            vmap.Add((VowelHeights.CloseMid, VowelBacknesses.Back, VowelRoundednesses.Rounded), IPA.IPA_307_CloseMidBackRoundedVowel);
+            vowelDict.Add((VowelHeights.CloseMid, VowelBacknesses.Back, VowelRoundednesses.Rounded), IPA.IPA_307_CloseMidBackRoundedVowel);
 
             // IPA 307-430
-            vmap.Add((VowelHeights.Mid, VowelBacknesses.Back, VowelRoundednesses.Rounded), IPA.IPA_307_430_MidBackRoundedVowel);
+            vowelDict.Add((VowelHeights.Mid, VowelBacknesses.Back, VowelRoundednesses.Rounded), IPA.IPA_307_430_MidBackRoundedVowel);
 
             // IPA 308
-            vmap.Add((VowelHeights.Close, VowelBacknesses.Back, VowelRoundednesses.Rounded), IPA.IPA_308_CloseBackRoundedVowel);
+            vowelDict.Add((VowelHeights.Close, VowelBacknesses.Back, VowelRoundednesses.Rounded), IPA.IPA_308_CloseBackRoundedVowel);
 
             // IPA 309
-            vmap.Add((VowelHeights.Close, VowelBacknesses.Front, VowelRoundednesses.Rounded), IPA.IPA_309_CloseFrontRoundedVowel);
+            vowelDict.Add((VowelHeights.Close, VowelBacknesses.Front, VowelRoundednesses.Rounded), IPA.IPA_309_CloseFrontRoundedVowel);
 
             // IPA 310
-            vmap.Add((VowelHeights.CloseMid, VowelBacknesses.Front, VowelRoundednesses.Rounded), IPA.IPA_310_CloseMidFrontRoundedVowel);
+            vowelDict.Add((VowelHeights.CloseMid, VowelBacknesses.Front, VowelRoundednesses.Rounded), IPA.IPA_310_CloseMidFrontRoundedVowel);
 
             // IPA 310-430
-            vmap.Add((VowelHeights.Mid, VowelBacknesses.Front, VowelRoundednesses.Rounded), IPA.IPA_310_430_MidFrontRoundedVowel);
+            vowelDict.Add((VowelHeights.Mid, VowelBacknesses.Front, VowelRoundednesses.Rounded), IPA.IPA_310_430_MidFrontRoundedVowel);
 
             // IPA 311
-            vmap.Add((VowelHeights.OpenMid, VowelBacknesses.Front, VowelRoundednesses.Rounded), IPA.IPA_311_OpenMidFrontRoundedVowel);
+            vowelDict.Add((VowelHeights.OpenMid, VowelBacknesses.Front, VowelRoundednesses.Rounded), IPA.IPA_311_OpenMidFrontRoundedVowel);
 
             // IPA 312
-            vmap.Add((VowelHeights.Open, VowelBacknesses.Front, VowelRoundednesses.Rounded), IPA.IPA_312_OpenFrontRoundedVowel);
+            vowelDict.Add((VowelHeights.Open, VowelBacknesses.Front, VowelRoundednesses.Rounded), IPA.IPA_312_OpenFrontRoundedVowel);
 
             // IPA 313
-            vmap.Add((VowelHeights.Open, VowelBacknesses.Back, VowelRoundednesses.Rounded), IPA.IPA_313_OpenBackRoundedVowel);
+            vowelDict.Add((VowelHeights.Open, VowelBacknesses.Back, VowelRoundednesses.Rounded), IPA.IPA_313_OpenBackRoundedVowel);
 
             // IPA 314
-            vmap.Add((VowelHeights.OpenMid, VowelBacknesses.Back, VowelRoundednesses.Unrounded), IPA.IPA_314_OpenMidBackUnroundedVowel);
+            vowelDict.Add((VowelHeights.OpenMid, VowelBacknesses.Back, VowelRoundednesses.Unrounded), IPA.IPA_314_OpenMidBackUnroundedVowel);
 
             // IPA 315
-            vmap.Add((VowelHeights.CloseMid, VowelBacknesses.Back, VowelRoundednesses.Unrounded), IPA.IPA_315_CloseMidBackUnroundedVowel);
+            vowelDict.Add((VowelHeights.CloseMid, VowelBacknesses.Back, VowelRoundednesses.Unrounded), IPA.IPA_315_CloseMidBackUnroundedVowel);
 
             // IPA 316
-            vmap.Add((VowelHeights.Close, VowelBacknesses.Back, VowelRoundednesses.Unrounded), IPA.IPA_316_CloseBackUnroundedVowel);
+            vowelDict.Add((VowelHeights.Close, VowelBacknesses.Back, VowelRoundednesses.Unrounded), IPA.IPA_316_CloseBackUnroundedVowel);
 
             // IPA 317
-            vmap.Add((VowelHeights.Close, VowelBacknesses.Central, VowelRoundednesses.Unrounded), IPA.IPA_317_CloseCentralUnroundedVowel);
+            vowelDict.Add((VowelHeights.Close, VowelBacknesses.Central, VowelRoundednesses.Unrounded), IPA.IPA_317_CloseCentralUnroundedVowel);
 
             // IPA 318
-            vmap.Add((VowelHeights.Close, VowelBacknesses.Central, VowelRoundednesses.Rounded), IPA.IPA_318_CloseCentralRoundedVowel);
+            vowelDict.Add((VowelHeights.Close, VowelBacknesses.Central, VowelRoundednesses.Rounded), IPA.IPA_318_CloseCentralRoundedVowel);
 
             // IPA 319
-            vmap.Add((VowelHeights.NearClose, VowelBacknesses.Front, VowelRoundednesses.Unrounded), IPA.IPA_319_NearCloseFrontUnroundedVowel);
+            vowelDict.Add((VowelHeights.NearClose, VowelBacknesses.Front, VowelRoundednesses.Unrounded), IPA.IPA_319_NearCloseFrontUnroundedVowel);
 
             // IPA 320
-            vmap.Add((VowelHeights.NearClose, VowelBacknesses.Front, VowelRoundednesses.Rounded), IPA.IPA_320_NearCloseFrontRoundedVowel);
+            vowelDict.Add((VowelHeights.NearClose, VowelBacknesses.Front, VowelRoundednesses.Rounded), IPA.IPA_320_NearCloseFrontRoundedVowel);
 
             // IPA 321
-            vmap.Add((VowelHeights.NearClose, VowelBacknesses.Back, VowelRoundednesses.Rounded), IPA.IPA_321_NearCloseBackRoundedVowel);
+            vowelDict.Add((VowelHeights.NearClose, VowelBacknesses.Back, VowelRoundednesses.Rounded), IPA.IPA_321_NearCloseBackRoundedVowel);
 
             // IPA 322 (Rounded)
-            vmap.Add((VowelHeights.Mid, VowelBacknesses.Central, VowelRoundednesses.Rounded), IPA.IPA_322_MidCentralVowel);
+            vowelDict.Add((VowelHeights.Mid, VowelBacknesses.Central, VowelRoundednesses.Rounded), IPA.IPA_322_MidCentralVowel);
 
             // IPA 322 (Unounded)
-            vmap.Add((VowelHeights.Mid, VowelBacknesses.Central, VowelRoundednesses.Unrounded), IPA.IPA_322_MidCentralVowel);
+            vowelDict.Add((VowelHeights.Mid, VowelBacknesses.Central, VowelRoundednesses.Unrounded), IPA.IPA_322_MidCentralVowel);
 
             // IPA 323
-            vmap.Add((VowelHeights.CloseMid, VowelBacknesses.Central, VowelRoundednesses.Rounded), IPA.IPA_323_CloseMidCentralRoundedVowel);
+            vowelDict.Add((VowelHeights.CloseMid, VowelBacknesses.Central, VowelRoundednesses.Rounded), IPA.IPA_323_CloseMidCentralRoundedVowel);
 
             // IPA 324 (Rounded)
-            vmap.Add((VowelHeights.NearOpen, VowelBacknesses.Central, VowelRoundednesses.Rounded), IPA.IPA_324_NearOpenCentralVowel);
+            vowelDict.Add((VowelHeights.NearOpen, VowelBacknesses.Central, VowelRoundednesses.Rounded), IPA.IPA_324_NearOpenCentralVowel);
 
             // IPA 324 (Unrounded)
-            vmap.Add((VowelHeights.NearOpen, VowelBacknesses.Central, VowelRoundednesses.Unrounded), IPA.IPA_324_NearOpenCentralVowel);
+            vowelDict.Add((VowelHeights.NearOpen, VowelBacknesses.Central, VowelRoundednesses.Unrounded), IPA.IPA_324_NearOpenCentralVowel);
 
             // IPA 325
-            vmap.Add((VowelHeights.NearOpen, VowelBacknesses.Front, VowelRoundednesses.Unrounded), IPA.IPA_325_NearOpenFrontUnroundedVowel);
+            vowelDict.Add((VowelHeights.NearOpen, VowelBacknesses.Front, VowelRoundednesses.Unrounded), IPA.IPA_325_NearOpenFrontUnroundedVowel);
 
             // IPA 326
-            vmap.Add((VowelHeights.OpenMid, VowelBacknesses.Central, VowelRoundednesses.Unrounded), IPA.IPA_326_OpenMidCentralUnroundedVowel);
+            vowelDict.Add((VowelHeights.OpenMid, VowelBacknesses.Central, VowelRoundednesses.Unrounded), IPA.IPA_326_OpenMidCentralUnroundedVowel);
 
             // IPA 395
-            vmap.Add((VowelHeights.OpenMid, VowelBacknesses.Central, VowelRoundednesses.Rounded), IPA.IPA_395_OpenMidCentralRoundedVowel);
+            vowelDict.Add((VowelHeights.OpenMid, VowelBacknesses.Central, VowelRoundednesses.Rounded), IPA.IPA_395_OpenMidCentralRoundedVowel);
 
             // IPA 397
-            vmap.Add((VowelHeights.CloseMid, VowelBacknesses.Central, VowelRoundednesses.Unrounded), IPA.IPA_397_CloseMidCentralUnroundedVowel);
+            vowelDict.Add((VowelHeights.CloseMid, VowelBacknesses.Central, VowelRoundednesses.Unrounded), IPA.IPA_397_CloseMidCentralUnroundedVowel);
 
-            return ImmutableSortedSet.CreateRange(vmap.Values);
+            return ImmutableSortedSet.CreateRange(vowelDict.Values);
         }
     }
 }
