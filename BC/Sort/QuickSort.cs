@@ -4,10 +4,12 @@ namespace BC.Sort
     public class QuickSort<T> : IArraySort<T> where T : IComparable<T>
     {
         private ISortHelper<T> SortHelper { get; }
+        private IPartionerTwoWay<T> Partioner {get;}
 
-        public QuickSort(ISortHelper<T> sortHelper)
+        public QuickSort(ISortHelper<T> sortHelper, IPartionerTwoWay<T> partioner)
         {
             SortHelper = sortHelper;
+            Partioner = partioner;
         }
 
         public void Sort(T[] array)
@@ -35,7 +37,7 @@ namespace BC.Sort
             if (right <= left)
                 return;
 
-            var partitionIndex = partition(ref array, left, right);
+            var partitionIndex = Partioner.Partition(ref array, left, right);
 
             quicksort(ref array, left, partitionIndex - 1);
             quicksort(ref array, partitionIndex + 1, right);

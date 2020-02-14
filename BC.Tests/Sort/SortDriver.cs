@@ -26,7 +26,9 @@ namespace BC.Sort
         public void QuickSortTest()
         {
             var sortHelper = new Sorting<int>();
-            var sort = new QuickSort<int>(sortHelper);
+            var partioner = new LomutoPartioner<int>(sortHelper);
+
+            var sort = new QuickSort<int>(sortHelper, partioner);
 
             var array = GetTestArray();
             sort.Sort(array);
@@ -38,9 +40,11 @@ namespace BC.Sort
             sortHelper.Summarize("QuickSort");
         }
 
-        private void ShowArray(int[] array) {
+        private void ShowArray(int[] array)
+        {
             var output = "";
-            for (int i=0; i < array.Length; i++) {
+            for (int i = 0; i < array.Length; i++)
+            {
                 output += $"{array[i]}, ";
             }
 
