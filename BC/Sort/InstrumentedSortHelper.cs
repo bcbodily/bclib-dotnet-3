@@ -20,32 +20,42 @@ namespace BC.Sort
     }
 
 
-    public class Sorting<T> : ISortHelper<T> where T : IComparable<T>
+    /// <summary>
+    /// A <see cref="ISortHelper"/> that provides some instrumentation
+    /// </summary>
+    /// <typeparam name="T">the type of elements this sort helper works with</typeparam>
+    public class InstrumentedSortHelper<T> : ISortHelper<T> where T : IComparable<T>
     {
-        
+
+        /// <summary>
+        /// Creates a new instance of <see cref="InstrumentedSortHelper"/> with a specified underlying <see cref="ISortHelper"/>
+        /// </summary>
+        /// <param name="sortHelper">the underlying sort helper that will perform the actual operations</param>
+        public InstrumentedSortHelper(ISortHelper<T> sortHelper)
+        {
+            SortHelper = sortHelper;
+        }
+
+        private ISortHelper<T> SortHelper { get; }
+
         public int CompareCount { get; private set; } = 0;
 
-        public bool OutputOn {get;set;} = true;
+        public bool OutputOn { get; set; } = true;
 
         public int SwapCount { get; private set; } = 0;
 
-        public int Compare(T[] array, int leftIndex, int rightIndex)
+        public int Compare(T[] array, int left, int right)
         {
             CompareCount++;
             if (OutputOn)
-                Console.WriteLine($"Compare #{CompareCount}: Comparing elements #{leftIndex} and #{rightIndex}");
-            var leftVsRight = array[leftIndex].CompareTo(array[rightIndex]);
-            ShowRange(array, 0, array.Length - 1, GetRangeRenderer(leftIndex, rightIndex));
-            ShowRange(array, 0, array.Length - 1, GetCompareRenderer(leftIndex, rightIndex, leftVsRight), Separators.Blank);
+                Console.WriteLine($"Compare #{CompareCount}: Comparing elements #{left} and #{right}");
+            var leftVsRight = SortHelper.Compare(array, left, right);
+            ShowRange(array, 0, array.Length - 1, GetRangeRenderer(left, right));
+            ShowRange(array, 0, array.Length - 1, GetCompareRenderer(left, right, leftVsRight), Separators.Blank);
 
             return leftVsRight;
         }
 
-        public void Reset()
-        {
-            CompareCount = 0;
-            SwapCount = 0;
-        }
 
         public void Summarize(string title)
         {
@@ -55,23 +65,20 @@ namespace BC.Sort
             Console.WriteLine();
         }
 
-        public void Swap(ref T[] array, int leftIndex, int rightIndex)
+        public void Swap(ref T[] array, int left, int right)
         {
             SwapCount++;
-            if (OutputOn) Console.WriteLine($"Swap #{SwapCount}: Swapping elements #{leftIndex} and #{rightIndex}");
+            if (OutputOn) Console.WriteLine($"Swap #{SwapCount}: Swapping elements #{left} and #{right}");
 
             // display pre-change
-            ShowRange(array, 0, array.Length - 1, GetRangeRenderer(leftIndex, rightIndex));
+            ShowRange(array, 0, array.Length - 1, GetRangeRenderer(left, right));
 
             // make the change
-            var temp = array[leftIndex];
-            array[leftIndex] = array[rightIndex];
-            array[rightIndex] = temp;
-
+            SortHelper.Swap(ref array, left, right);
 
             // show post-change
-            ShowRange(array, 0, array.Length - 1, GetSwapRenderer(leftIndex, rightIndex), Separators.Blank);
-            ShowRange(array, 0, array.Length - 1, GetRangeRenderer(leftIndex, rightIndex));
+            ShowRange(array, 0, array.Length - 1, GetSwapRenderer(left, right), Separators.Blank);
+            ShowRange(array, 0, array.Length - 1, GetRangeRenderer(left, right));
             ShowRange(array, 0, array.Length - 1, WriteElement);
 
             // Console.WriteLine();
@@ -81,7 +88,8 @@ namespace BC.Sort
         {
             char leftChar = leftVsRight < 0 ? '-' : '+';
             char rightChar = leftVsRight > 0 ? '-' : '+';
-            if (leftVsRight == 0) {
+            if (leftVsRight == 0)
+            {
                 leftChar = '=';
                 rightChar = '=';
             }
@@ -150,8 +158,8 @@ namespace BC.Sort
             builder.Append(separators.Left);
             for (int i = left; i <= right; i++)
             {
-                builder.Append( $" {renderer((array[i], i))} ");
-                builder.Append( i < right ? separators.Mid : separators.Right);
+                builder.Append($" {renderer((array[i], i))} ");
+                builder.Append(i < right ? separators.Mid : separators.Right);
             }
             if (OutputOn) Console.WriteLine(builder.ToString());
         }

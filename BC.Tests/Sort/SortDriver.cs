@@ -9,7 +9,7 @@ namespace BC.Sort
         [Fact]
         public void BubbleSortTest()
         {
-            var sortHelper = new Sorting<int>();
+            var sortHelper = new InstrumentedSortHelper<int>(new SortHelper<int>());
             var sort = new BubbleSort<int>(sortHelper);
 
             var array = GetTestArray();
@@ -25,7 +25,7 @@ namespace BC.Sort
         [Fact]
         public void QuickSortTest()
         {
-            var sortHelper = new Sorting<int>();
+            var sortHelper = new InstrumentedSortHelper<int>(new SortHelper<int>());
             var partioner = new LomutoPartioner<int>(sortHelper);
 
             var sort = new QuickSort<int>(sortHelper, partioner);
