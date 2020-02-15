@@ -6,7 +6,7 @@ namespace BC.Sort
     /// An interface to a partioner that partions an array into two parts, separated by a single index
     /// </summary>
     /// <typeparam name="T">the type of elements in the array being partioned</typeparam>
-    public interface IPartionerTwoWay<T> where T : IComparable<T>
+    public interface IPartitionerTwoWay<T> where T : IComparable<T>
     {
         /// <summary>
         /// Partions the array, and returns the index of the element that separates the two parts

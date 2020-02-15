@@ -2,7 +2,7 @@ using System;
 
 namespace BC.Sort
 {
-    public class LomutoPartioner<T> : IPartionerTwoWay<T> where T : IComparable<T>
+    public class LomutoPartioner<T> : IPartitionerTwoWay<T> where T : IComparable<T>
     {
         public LomutoPartioner(ISortHelper<T> sortHelper)
         {

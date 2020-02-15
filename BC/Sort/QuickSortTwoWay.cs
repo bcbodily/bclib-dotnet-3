@@ -4,9 +4,9 @@ namespace BC.Sort
     public class QuickSort2<T> : IArraySort<T> where T : IComparable<T>
     {
         private ISortHelper<T> SortHelper { get; }
-        private IPartionerThreeWay<T> Partioner { get; }
+        private IPartitionerThreeWay<T> Partioner { get; }
 
-        public QuickSort2(ISortHelper<T> sortHelper, IPartionerThreeWay<T> partioner)
+        public QuickSort2(ISortHelper<T> sortHelper, IPartitionerThreeWay<T> partioner)
         {
             SortHelper = sortHelper;
             Partioner = partioner;
