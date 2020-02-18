@@ -40,9 +40,11 @@ namespace BC.Sort
 
         public int CompareCount { get; private set; } = 0;
 
-        public bool OutputOn { get; set; } = true;
+        public bool OutputOn { get; set; } = false;
 
         public int SwapCount { get; private set; } = 0;
+
+        public int WriteCount {get;private set; } = 0;
 
         public int Compare(T[] array, int left, int right)
         {
@@ -60,8 +62,7 @@ namespace BC.Sort
         public void Summarize(string title)
         {
             Console.WriteLine(title);
-            Console.WriteLine($"Compares/Swaps: {CompareCount} / {SwapCount}");
-            Console.WriteLine();
+            Console.WriteLine($"Compares/Swaps/Writes: {CompareCount} / {SwapCount} / {WriteCount}");
             Console.WriteLine();
         }
 
@@ -80,8 +81,21 @@ namespace BC.Sort
             ShowRange(array, 0, array.Length - 1, GetSwapRenderer(left, right), Separators.Blank);
             ShowRange(array, 0, array.Length - 1, GetRangeRenderer(left, right));
             ShowRange(array, 0, array.Length - 1, WriteElement);
+        }
 
-            // Console.WriteLine();
+
+        public void Write(ref T[] array, int index, T value)
+        {
+            WriteCount++;
+            if (OutputOn) Console.WriteLine($"Write #{WriteCount}: Writing to element {index}");
+
+            // make the change
+            SortHelper.Write(ref array, index, value);
+
+            // show post-change
+            // ShowRange(array, 0, array.Length - 1, GetSwapRenderer(left, right), Separators.Blank);
+            ShowRange(array, 0, array.Length - 1, GetRangeRenderer(index, index));
+            ShowRange(array, 0, array.Length - 1, WriteElement);
         }
 
         private static Func<(T, int), string> GetCompareRenderer(int leftIndex, int rightIndex, int leftVsRight)
@@ -175,7 +189,6 @@ namespace BC.Sort
 
             return output;
         }
-
 
     }
 }

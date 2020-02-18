@@ -24,5 +24,13 @@ namespace BC.Sort
         /// <param name="left">the index of the first element</param>
         /// <param name="right">the index of the second element</param>
         public void Swap(ref T[] array, int left, int right);
+
+        /// <summary>
+        /// Writes a specified value to an specified index within an array
+        /// </summary>
+        /// <param name="array">the array containing the element to be written to</param>
+        /// <param name="index">the index of the element to be written to</param>
+        /// <param name="value">the value to write</param>
+        public void Write(ref T[] array, int index, T value);
     }
 }

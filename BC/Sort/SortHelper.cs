@@ -19,5 +19,11 @@ namespace BC.Sort
             array[left] = array[right];
             array[right] = temp;
         }
+
+        ///<inheritdoc/>
+        public void Write(ref T[] array, int index, T value)
+        {
+            array[index] = value;
+        }
     }
 }
