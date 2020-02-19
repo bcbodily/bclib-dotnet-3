@@ -6,7 +6,20 @@ namespace BC.Sort
     public class LomutoPartionerTests
     {
         /// <summary>
-        /// Verifies <see cref="LomutoPartioner.Partition(ref T[], int, int)"/> properly returns a partition index for which all elements that come before the partition index are less than or equal to the element stored at the partition index
+        /// Verifies <see cref="LomutoPartitioner.LomutoPartitioner(ISortHelper{T})"/> when the <see cref="ISortHelper"/> is null, properly throws an <see cref="ArgumentException"/>
+        /// </summary>
+        [Fact]
+        public void Constructor_ISortHelper_is_null_throws_exception()
+        {
+            ISortHelper<int> sortHelper = null;
+
+            Assert.Null(sortHelper);
+
+            Assert.Throws<ArgumentException>(() => new LomutoPartitioner<int>(sortHelper));
+        }
+
+        /// <summary>
+        /// Verifies <see cref="LomutoPartitioner.Partition(ref T[], int, int)"/> properly returns a partition index for which all elements that come before the partition index are less than or equal to the element stored at the partition index
         /// </summary>
         /// <param name="size">the size of the array to create for testing</param>
         [Theory]
@@ -15,7 +28,7 @@ namespace BC.Sort
         {
             var array = GetTestArray(size);
 
-            var partition = new LomutoPartioner<int>(new SortHelper<int>()).Partition(ref array, 0, array.Length - 1);
+            var partition = new LomutoPartitioner<int>(new SortHelper<int>()).Partition(ref array, 0, array.Length - 1);
             var partitionValue = array[partition];
             for (int i = 0; i < partition; i++)
             {
@@ -24,7 +37,7 @@ namespace BC.Sort
         }
 
         /// <summary>
-        /// Verifies <see cref="LomutoPartioner.Partition(ref T[], int, int)"/> properly returns a partition index for which all elements that come after the partition index are greater than or equal to the element stored at the partition index
+        /// Verifies <see cref="LomutoPartitioner.Partition(ref T[], int, int)"/> properly returns a partition index for which all elements that come after the partition index are greater than or equal to the element stored at the partition index
         /// </summary>
         /// <param name="size">the size of the array to create for testing</param>
         [Theory]
@@ -33,7 +46,7 @@ namespace BC.Sort
         {
             var array = GetTestArray(size);
 
-            var partition = new LomutoPartioner<int>(new SortHelper<int>()).Partition(ref array, 0, array.Length - 1);
+            var partition = new LomutoPartitioner<int>(new SortHelper<int>()).Partition(ref array, 0, array.Length - 1);
             var partitionValue = array[partition];
             for (int i = partition + 1; i < array.Length; i++)
             {

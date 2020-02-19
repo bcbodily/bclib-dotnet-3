@@ -113,7 +113,7 @@ namespace BC.Sort
         public void QuickSortInOrder()
         {
             var sortHelper = new InstrumentedSortHelper<int>(new SortHelper<int>());
-            var partioner = new LomutoPartioner<int>(sortHelper);
+            var partioner = new LomutoPartitioner<int>(sortHelper);
 
             var sort = new QuickSort<int>(sortHelper, partioner);
 
@@ -131,7 +131,7 @@ namespace BC.Sort
         public void QuickSortReverseTest()
         {
             var sortHelper = new InstrumentedSortHelper<int>(new SortHelper<int>());
-            var partioner = new LomutoPartioner<int>(sortHelper);
+            var partioner = new LomutoPartitioner<int>(sortHelper);
 
             var sort = new QuickSort<int>(sortHelper, partioner);
 
@@ -149,7 +149,7 @@ namespace BC.Sort
         public void QuickSortRandomTest()
         {
             var sortHelper = new InstrumentedSortHelper<int>(new SortHelper<int>());
-            var partioner = new LomutoPartioner<int>(sortHelper);
+            var partioner = new LomutoPartitioner<int>(sortHelper);
 
             var sort = new QuickSort<int>(sortHelper, partioner);
 

@@ -3,6 +3,9 @@ using System.Text;
 
 namespace BC.Sort
 {
+    /// <summary>
+    /// Utility struct that describes a left, middle, and right separator string
+    /// </summary>
     public struct Separators
     {
         public static Separators Range => new Separators("[", "|", "]");
