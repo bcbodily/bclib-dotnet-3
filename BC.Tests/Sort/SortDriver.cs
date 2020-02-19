@@ -5,7 +5,7 @@ namespace BC.Sort
 {
     public class SortDriver
     {
-        private const int DEFAULT_TEST_ARRAY_SIZE = 100;
+        private const int DEFAULT_TEST_ARRAY_SIZE = 10;
 
         [Fact]
         public void BubbleSortInOrderTest()
@@ -54,6 +54,55 @@ namespace BC.Sort
             Assert.Equal(expected, actual);
             sortHelper.Summarize("Bubble Sort Random");
         }
+
+        [Fact]
+        public void InsertionSortInOrderTest()
+        {
+            var sortHelper = new InstrumentedSortHelper<int>(new SortHelper<int>());
+            var sort = new InsertionSort<int>(sortHelper);
+
+            var array = GetTestArrayInOrder();
+            sort.Sort(array);
+
+            bool expected = true;
+            bool actual = IsSorted(array);
+
+            Assert.Equal(expected, actual);
+            sortHelper.Summarize("Insertion Sort In Order");
+        }
+
+        [Fact]
+        public void InsertionSortReverseTest()
+        {
+            var sortHelper = new InstrumentedSortHelper<int>(new SortHelper<int>());
+            var sort = new InsertionSort<int>(sortHelper);
+
+            var array = GetTestArrayReverseOrder();
+            sort.Sort(array);
+
+            bool expected = true;
+            bool actual = IsSorted(array);
+
+            Assert.Equal(expected, actual);
+            sortHelper.Summarize("Insertion Sort Reverse");
+        }
+
+        [Fact]
+        public void InsertionSortRandomTest()
+        {
+            var sortHelper = new InstrumentedSortHelper<int>(new SortHelper<int>());
+            var sort = new InsertionSort<int>(sortHelper);
+
+            var array = GetTestArrayRandomOrder();
+            sort.Sort(array);
+
+            bool expected = true;
+            bool actual = IsSorted(array);
+
+            Assert.Equal(expected, actual);
+            sortHelper.Summarize("Insertion Sort Random");
+        }
+
 
         [Fact]
         public void MergeSortInOrderTest()
