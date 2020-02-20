@@ -9,6 +9,10 @@ namespace BC.Sorting.Sorts
     /// </summary>
     public class MergeSortTests
     {
+        /// <summary>
+        /// Verifies <see cref="MergeSort.Sort(T[])"/> properly sorts an array comprised of elements in order
+        /// </summary>
+        /// <param name="size">the size of the test array to use</param>
         [Theory]
         [InlineData(1)]
         [InlineData(10)]
@@ -22,6 +26,10 @@ namespace BC.Sorting.Sorts
             Assert.True(SortDriver.IsSorted(array));
         }
 
+        /// <summary>
+        /// Verifies <see cref="MergeSort.Sort(T[])"/> properly sorts an array comprised of elements in random order
+        /// </summary>
+        /// <param name="size">the size of the test array to use</param>
         [Theory]
         [InlineData(1)]
         [InlineData(10)]
@@ -35,6 +43,10 @@ namespace BC.Sorting.Sorts
             Assert.True(SortDriver.IsSorted(array));
         }
 
+        /// <summary>
+        /// Verifies <see cref="MergeSort.Sort(T[])"/> properly sorts an array comprised of elements in reverse order
+        /// </summary>
+        /// <param name="size">the size of the test array to use</param>
         [Theory]
         [InlineData(1)]
         [InlineData(10)]
