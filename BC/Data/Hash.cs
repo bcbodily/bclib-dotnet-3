@@ -38,6 +38,71 @@ namespace BC.Data
             AddToBucket(GetBucket(key), key, value);
         }
 
+
+        public void Add(KeyValuePair<TKey, TValue> item)
+        {
+            AddToBucket(GetBucket(item.Key), item.Key, item.Value);
+        }
+
+        public void Clear()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Contains(KeyValuePair<TKey, TValue> item)
+        {
+            if (ContainsKey(item.Key))
+            {
+                return this[item.Key].Equals(item.Value);
+            }
+            return false;
+        }
+
+        public bool ContainsKey(TKey key)
+        {
+            var bucket = GetBucket(key);
+            var keysTable = bucket.keys;
+            if (keysTable == null)
+                return false;
+            for (int i = 0; i < keysTable.Length; i++)
+            {
+                if (key.Equals(keysTable[i]))
+                    return true;
+            }
+            // else
+            return false;
+        }
+
+        // public void CopyTo(KeyValuePair<TKey, TValue>[] array, int arrayIndex)
+        // {
+        //     throw new NotImplementedException();
+        // }
+
+        // public IEnumerator<KeyValuePair<TKey, TValue>> GetEnumerator()
+        // {
+        //     throw new NotImplementedException();
+        // }
+
+        public bool Remove(TKey key)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Remove(KeyValuePair<TKey, TValue> item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool TryGetValue(TKey key, out TValue value)
+        {
+            throw new NotImplementedException();
+        }
+
+        // IEnumerator IEnumerable.GetEnumerator()
+        // {
+        //     throw new NotImplementedException();
+        // }
+
         private void AddToBucket((TKey[] keys, TValue[] values) bucket, TKey key, TValue value)
         {
             var openSpaceIndex = GetNextOpenBucketSpace(bucket);
@@ -90,64 +155,5 @@ namespace BC.Data
             return openSpaceIndex;
         }
 
-        public void Add(KeyValuePair<TKey, TValue> item)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Clear()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool Contains(KeyValuePair<TKey, TValue> item)
-        {
-            return false;
-        }
-
-        public bool ContainsKey(TKey key)
-        {
-            var bucket = GetBucket(key);
-            var keysTable = bucket.keys;
-            if (keysTable == null)
-                return false;
-            for (int i = 0; i < keysTable.Length; i++)
-            {
-                if (key.Equals(keysTable[i]))
-                    return true;
-            }
-            // else
-            return false;
-        }
-
-        // public void CopyTo(KeyValuePair<TKey, TValue>[] array, int arrayIndex)
-        // {
-        //     throw new NotImplementedException();
-        // }
-
-        // public IEnumerator<KeyValuePair<TKey, TValue>> GetEnumerator()
-        // {
-        //     throw new NotImplementedException();
-        // }
-
-        public bool Remove(TKey key)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool Remove(KeyValuePair<TKey, TValue> item)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool TryGetValue(TKey key, out TValue value)
-        {
-            throw new NotImplementedException();
-        }
-
-        // IEnumerator IEnumerable.GetEnumerator()
-        // {
-        //     throw new NotImplementedException();
-        // }
     }
 }

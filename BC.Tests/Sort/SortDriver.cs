@@ -212,23 +212,7 @@ namespace BC.Sort
             sortHelper.Summarize("QuickSort Random");
         }
 
-        private void ShowArray(int[] array)
-        {
-            var output = "";
-            for (int i = 0; i < array.Length; i++)
-            {
-                output += $"{array[i]}, ";
-            }
 
-            Console.WriteLine(output);
-        }
-
-
-
-        private int[] GetTestArray(int size=DEFAULT_TEST_ARRAY_SIZE)
-        {
-            return GetTestArrayRandomOrder(size);
-        }
 
         private int[] GetTestArrayInOrder(int size = DEFAULT_TEST_ARRAY_SIZE)
         {
