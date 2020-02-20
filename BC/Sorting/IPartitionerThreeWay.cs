@@ -1,6 +1,6 @@
 using System;
 
-namespace BC.Sort
+namespace BC.Sorting
 {
     /// <summary>
     /// An interface to a partioner that partions an array into three parts, separated by a left index and a right index

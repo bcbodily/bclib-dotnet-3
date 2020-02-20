@@ -1,6 +1,6 @@
 using System;
 
-namespace BC.Sort
+namespace BC.Sorting.Sorts
 {
     /// <summary>
     /// A bubble sort sorting algorithm

@@ -1,6 +1,6 @@
 using System;
 
-namespace BC.Sort
+namespace BC.Sorting.Partitioners
 {
     /// <summary>
     /// A two-way partitioner that partitions that utilizes the Lomuto partitioning scheme

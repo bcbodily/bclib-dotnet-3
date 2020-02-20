@@ -1,5 +1,5 @@
 using System;
-namespace BC.Sort
+namespace BC.Sorting.Sorts
 {
     public class QuickSort2<T> : IArraySort<T> where T : IComparable<T>
     {

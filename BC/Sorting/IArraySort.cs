@@ -1,6 +1,6 @@
 using System;
 
-namespace BC.Sort
+namespace BC.Sorting
 {
     /// <summary>
     /// Interface to an object that can sort arrays

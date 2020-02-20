@@ -1,7 +1,7 @@
 using System;
 using Xunit;
 
-namespace BC.Sort
+namespace BC.Sorting.Sorts
 {
     public class InsertionSortTests
     {

@@ -1,8 +1,9 @@
 using System;
 using Xunit;
 using Moq;
+using BC.Sorting.SortHelpers;
 
-namespace BC.Sort
+namespace BC.Sorting
 {
     /// <summary>
     /// An interface that implements IComparable with itself, that can be mocked for testing

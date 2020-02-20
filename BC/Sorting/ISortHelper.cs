@@ -1,6 +1,6 @@
 using System;
 
-namespace BC.Sort
+namespace BC.Sorting
 {
     /// <summary>
     /// An interface to a sorting helper class that implements compares and swaps of array elements

@@ -1,7 +1,8 @@
 using System;
+using BC.Sorting.SortHelpers;
 using Xunit;
 
-namespace BC.Sort
+namespace BC.Sorting.Partitioners
 {
     public class LomutoPartionerTests
     {

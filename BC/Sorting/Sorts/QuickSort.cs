@@ -1,5 +1,5 @@
 using System;
-namespace BC.Sort
+namespace BC.Sorting.Sorts
 {
     /// <summary>
     /// A sorting algorithm that implements QuickSort, with a 1-way partitioning approach

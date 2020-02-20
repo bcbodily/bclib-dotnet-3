@@ -1,7 +1,10 @@
 using System;
+using BC.Sorting.Partitioners;
+using BC.Sorting.SortHelpers;
+using BC.Sorting.Sorts;
 using Xunit;
 
-namespace BC.Sort
+namespace BC.Sorting
 {
     public class SortDriver
     {

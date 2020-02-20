@@ -1,6 +1,6 @@
 using System;
 
-namespace BC.Sort
+namespace BC.Sorting.SortHelpers
 {
     /// <summary>
     /// A basic ISortHelper

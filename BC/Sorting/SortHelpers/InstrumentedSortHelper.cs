@@ -1,7 +1,7 @@
 using System;
 using System.Text;
 
-namespace BC.Sort
+namespace BC.Sorting.SortHelpers
 {
     /// <summary>
     /// Utility struct that describes a left, middle, and right separator string
