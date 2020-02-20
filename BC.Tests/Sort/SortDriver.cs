@@ -214,7 +214,7 @@ namespace BC.Sort
 
 
 
-        private int[] GetTestArrayInOrder(int size = DEFAULT_TEST_ARRAY_SIZE)
+        public static int[] GetTestArrayInOrder(int size = DEFAULT_TEST_ARRAY_SIZE)
         {
             Random rand = new Random(0);
             var array = new int[size];
@@ -228,7 +228,7 @@ namespace BC.Sort
             return array;
         }
 
-        private int[] GetTestArrayRandomOrder(int size = DEFAULT_TEST_ARRAY_SIZE)
+        public static int[] GetTestArrayRandomOrder(int size = DEFAULT_TEST_ARRAY_SIZE)
         {
             Random rand = new Random(0);
             var array = new int[size];
@@ -241,7 +241,7 @@ namespace BC.Sort
             return array;
         }
 
-        private int[] GetTestArrayReverseOrder(int size = DEFAULT_TEST_ARRAY_SIZE)
+        public static int[] GetTestArrayReverseOrder(int size = DEFAULT_TEST_ARRAY_SIZE)
         {
             Random rand = new Random(0);
             var array = new int[size];
@@ -255,7 +255,7 @@ namespace BC.Sort
             return array;
         }
 
-        private bool IsSorted(int[] array)
+        public static bool IsSorted(int[] array)
         {
             for (int i = 1; i < array.Length; i++)
             {

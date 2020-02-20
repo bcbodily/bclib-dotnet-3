@@ -4,9 +4,9 @@ using Xunit;
 namespace BC.Sort
 {
     /// <summary>
-    /// Unit tests for <see cref="MergeSort"/>
+    /// Unit tests for <see cref="BubbleSort"/>
     /// </summary>
-    public class MergeSortTests
+    public class BubbleSortTests
     {
         [Theory]
         [InlineData(1)]
@@ -16,7 +16,7 @@ namespace BC.Sort
         {
             var array = SortDriver.GetTestArrayInOrder(size);
 
-            new MergeSort<int>(new SortHelper<int>()).Sort(array);
+            new BubbleSort<int>(new SortHelper<int>()).Sort(array);
 
             Assert.True(SortDriver.IsSorted(array));
         }
@@ -29,7 +29,7 @@ namespace BC.Sort
         {
             var array = SortDriver.GetTestArrayRandomOrder(size);
 
-            new MergeSort<int>(new SortHelper<int>()).Sort(array);
+            new BubbleSort<int>(new SortHelper<int>()).Sort(array);
 
             Assert.True(SortDriver.IsSorted(array));
         }
@@ -42,7 +42,7 @@ namespace BC.Sort
         {
             var array = SortDriver.GetTestArrayReverseOrder(size);
 
-            new MergeSort<int>(new SortHelper<int>()).Sort(array);
+            new BubbleSort<int>(new SortHelper<int>()).Sort(array);
 
             Assert.True(SortDriver.IsSorted(array));
         }
